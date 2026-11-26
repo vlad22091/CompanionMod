@@ -29,6 +29,8 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import net.neoforged.neoforge.common.DeferredSpawnEggItem;
+import com.vlad22091.companionmod.entity.ModEntities;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(CompanionMod.MODID)
@@ -52,7 +54,8 @@ public class CompanionMod {
     // Creates a new food item with the id "examplemod:example_id", nutrition 1 and saturation 2
     public static final DeferredItem<Item> EXAMPLE_ITEM = ITEMS.registerSimpleItem("example_item", new Item.Properties().food(new FoodProperties.Builder()
             .alwaysEdible().nutrition(1).saturationModifier(2f).build()));
-
+    public static final DeferredItem<DeferredSpawnEggItem> COMPANION_SPAWN_EGG = ITEMS.register("companion_spawn_egg",
+            () -> new DeferredSpawnEggItem(ModEntities.COMPANION, 0xE8A0BF, 0x7A3E5C, new Item.Properties()));
     // Creates a creative tab with the id "examplemod:example_tab" for the example item, that is placed after the combat tab
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> EXAMPLE_TAB = CREATIVE_MODE_TABS.register("example_tab", () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup.examplemod")) //The language key for the title of your CreativeModeTab
@@ -74,7 +77,7 @@ public class CompanionMod {
         ITEMS.register(modEventBus);
         // Register the Deferred Register to the mod event bus so tabs get registered
         CREATIVE_MODE_TABS.register(modEventBus);
-
+        ModEntities.ENTITY_TYPES.register(modEventBus);
         // Register ourselves for server and other game events we are interested in.
         // Note that this is necessary if and only if we want *this* class (ExampleMod) to respond directly to events.
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
@@ -104,6 +107,9 @@ public class CompanionMod {
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
             event.accept(EXAMPLE_BLOCK_ITEM);
+            if (event.getTabKey() == CreativeModeTabs.SPAWN_EGGS) {
+                event.accept(COMPANION_SPAWN_EGG);
+            }
         }
     }
 
