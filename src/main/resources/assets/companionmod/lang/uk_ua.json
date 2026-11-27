@@ -1,0 +1,13 @@
+{
+  "itemGroup.companionmod": "Hearthmates",
+  "entity.companionmod.companion": "Компаньйонка",
+  "item.companionmod.companion_spawn_egg": "Яйце виклику: Компаньйонка",
+
+  "companionmod.configuration.title": "Налаштування Hearthmates",
+  "companionmod.configuration.section.companionmod.common.toml": "Налаштування Hearthmates",
+  "companionmod.configuration.section.companionmod.common.toml.title": "Налаштування Hearthmates",
+  "companionmod.configuration.items": "Список предметів",
+  "companionmod.configuration.logDirtBlock": "Логувати блок землі",
+  "companionmod.configuration.magicNumberIntroduction": "Текст магічного числа",
+  "companionmod.configuration.magicNumber": "Магічне число"
+}

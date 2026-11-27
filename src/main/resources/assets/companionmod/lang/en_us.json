@@ -1,0 +1,13 @@
+{
+  "itemGroup.companionmod": "Hearthmates",
+  "entity.companionmod.companion": "Companion",
+  "item.companionmod.companion_spawn_egg": "Companion Spawn Egg",
+
+  "companionmod.configuration.title": "Hearthmates Configs",
+  "companionmod.configuration.section.companionmod.common.toml": "Hearthmates Configs",
+  "companionmod.configuration.section.companionmod.common.toml.title": "Hearthmates Configs",
+  "companionmod.configuration.items": "Item List",
+  "companionmod.configuration.logDirtBlock": "Log Dirt Block",
+  "companionmod.configuration.magicNumberIntroduction": "Magic Number Text",
+  "companionmod.configuration.magicNumber": "Magic Number"
+}
